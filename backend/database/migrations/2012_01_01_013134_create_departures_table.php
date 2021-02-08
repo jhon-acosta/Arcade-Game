@@ -15,20 +15,23 @@ class CreateDeparturesTable extends Migration
     {
         Schema::create('departures', function (Blueprint $table) {
             $table->id();
-            $table->string('Attempts')->nullable();
-            $table->string('level')->nullable();
-            $table->string('time')->nullable();
+            $table->string('attempts');
+            $table->string('level');
+            $table->string('time');
 
             $table->unsignedBigInteger('game_id');
-            $table->foreign('game_id')->references('id')
-            ->on('games')
-            ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('game_id')
+                    ->references('id')
+                    ->on('games')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')
-            ->on('users')
-            ->onUpdate('cascade')->onDelete('cascade');
-
+            $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
 
             $table->timestamps();
 

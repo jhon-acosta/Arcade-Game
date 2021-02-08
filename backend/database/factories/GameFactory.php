@@ -22,7 +22,9 @@ class GameFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'description' => $this->faker->sentence(),
+            'type_id' => $this->faker->unique()->numberBetween(1, 2)
         ];
     }
 }

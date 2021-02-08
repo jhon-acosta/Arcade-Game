@@ -9,7 +9,10 @@ class Departure extends Model
 {
     use HasFactory;
 
-    public function users(){
-        return $this->belongsTo(User::class);
+    public function user(){
+        return $this->belongsToMany(User::class);
+    }
+    public function game(){
+        return $this->belongsToMany(Game::class);
     }
 }

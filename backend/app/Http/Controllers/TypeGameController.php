@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TypeGame;
 use Illuminate\Http\Request;
+use App\Models\TypeGame;
+use App\Http\Resources\TypeGameResource;
 
 class TypeGameController extends Controller
 {
@@ -14,7 +15,8 @@ class TypeGameController extends Controller
      */
     public function index()
     {
-        //
+        $types = TypeGame::paginate(10);
+        return TypeGameResource::collection($types);
     }
 
     /**
@@ -35,7 +37,12 @@ class TypeGameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $type = new TypeGame();
+        $type->description = $request->description;
+
+        if($type->save()){
+            return new TypeGameResource($type);
+        }
     }
 
     /**
@@ -67,9 +74,14 @@ class TypeGameController extends Controller
      * @param  \App\Models\TypeGame  $typeGame
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeGame $typeGame)
+    public function update(Request $request, $id)
     {
-        //
+        $type = TypeGame::findOrFail($id);
+        $type->description = $request->description;
+
+        if($type->save()){
+            return new TypeGameResource($type);
+        }
     }
 
     /**
@@ -78,8 +90,12 @@ class TypeGameController extends Controller
      * @param  \App\Models\TypeGame  $typeGame
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeGame $typeGame)
+    public function destroy($id)
     {
-        //
+        $type = TypeGame::findOrFail($id);
+
+        if($type->delete()){
+            return new TypeGameResource($type);
+        }
     }
 }

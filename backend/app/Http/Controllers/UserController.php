@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Game;
 use Illuminate\Http\Request;
-use App\Http\Resources\GameResource;
+use App\Models\User;
+use App\Http\Resources\UserResource;
 
-class GameController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class GameController extends Controller
      */
     public function index()
     {
-        $games = Game::paginate(10);
-        return GameResource::collection($games);
+        $users = User::paginate(10);
+        return UserResource::collection($users);
     }
 
     /**
@@ -37,24 +37,28 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $game = new Game();
-        $game->name = $request->name;
-        $game->description = $request->description;
-        $game->type_id = $request->type_id;
+        $user = new User();
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->nickname = $request->nickname;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->age = $request->age;
+      
 
-        if($game->save()){
-            return new GameResource($game);
+        if($user->save())
+        {
+            return new UserResource($user);
         }
-        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Game  $game
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Game $game)
+    public function show($id)
     {
         //
     }
@@ -62,10 +66,10 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Game  $game
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game $game)
+    public function edit($id)
     {
         //
     }
@@ -74,33 +78,38 @@ class GameController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Game  $game
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $game = Game::findOrFail($id);
-        $game->name = $request->name;
-        $game->description = $request->description;
-        $game->type_id = $request->type_id;
-        
-        if($game->save()){
-            return new GameResource($game);
+        $user =  User::findOrFail($id);
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->nickname = $request->nickname;
+        $user->age = $request->age;
+        $user->email = $request->email;
+        $user->password = $request->password;      
+
+        if($user->save())
+        {
+            return new UserResource($user);
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Game  $game
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $game = Game::findOrFail($id);
+        $user =  User::findOrFail($id);
 
-        if($game->delete()){
-            return new GameResource($game);
+        if($user->delete())
+        {
+            return new UserResource($user); 
         }
     }
 }

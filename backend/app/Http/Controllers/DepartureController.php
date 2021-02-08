@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Departure;
 use Illuminate\Http\Request;
+use App\Http\Resources\DepartureResource;
 
 class DepartureController extends Controller
 {
@@ -14,7 +15,8 @@ class DepartureController extends Controller
      */
     public function index()
     {
-        //
+        $departures = Departure::paginate(10);
+        return DepartureResource::collection($departures);
     }
 
     /**
@@ -35,7 +37,16 @@ class DepartureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $departure = new Departure();
+        $departure->attempts = $request->attempts;
+        $departure->level = $request->level;
+        $departure->time = $request->time;
+        $departure->game_id = $request->game_id;
+        $departure->user_id = $request->user_id;
+
+        if($departure->save()){
+            return new DepartureResource($departure);
+        }
     }
 
     /**
@@ -67,9 +78,18 @@ class DepartureController extends Controller
      * @param  \App\Models\Departure  $departure
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Departure $departure)
+    public function update(Request $request, $id )
     {
-        //
+        $departure = Departure::findOrFail($id);
+        $departure->attempts = $request->attempts;
+        $departure->level = $request->level;
+        $departure->time = $request->time;
+        $departure->game_id = $request->game_id;
+        $departure->user_id = $request->user_id;
+        
+        if($departure->save()){
+            return new DepartureResource($departure);
+        }
     }
 
     /**
@@ -78,8 +98,12 @@ class DepartureController extends Controller
      * @param  \App\Models\Departure  $departure
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Departure $departure)
+    public function destroy( $id )
     {
-        //
+        $departure = Departure::findOrFail($id);
+
+        if($departure->delete()){
+            return new DepartureResource($departure);
+        }
     }
 }

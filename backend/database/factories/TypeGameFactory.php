@@ -22,7 +22,7 @@ class TypeGameFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'description' => $this->faker->sentence()
         ];
     }
 }

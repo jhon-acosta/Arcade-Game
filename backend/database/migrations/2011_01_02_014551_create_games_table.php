@@ -19,9 +19,11 @@ class CreateGamesTable extends Migration
             $table->string('description')->nullable();
 
             $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')
-            ->on('type_games')
-            ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('type_id')
+                    ->references('id')
+                    ->on('type_games')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
 
             $table->timestamps();
         });

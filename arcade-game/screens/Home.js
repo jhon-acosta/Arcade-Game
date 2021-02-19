@@ -10,7 +10,7 @@ const Home = ({ navigation }) => {
                 onPress={() => navigation.navigate("Memorize")}
                 style={styles.buttons}
                 >
-                <Text>Ayuda a Javi Bros a no perder la su memoria</Text>
+                <Text>Ayuda a Javi Bros a no perder la memoria</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => navigation.navigate("Strategy")}

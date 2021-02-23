@@ -12,6 +12,10 @@ import Strategy from './screens/games/Strategy/Strategy';
 import Profile from './screens/Profile';
 import GlobalScore from './screens/GlobalScore';
 
+import First_Step from './screens/games/Memorize/Steps/First_Step';
+import Second_Step from './screens/games/Memorize/Steps/Second_Step';
+import Third_Step from './screens/games/Memorize/Steps/Third_Step';
+
 const Tabs = createBottomTabNavigator();
 
 const HomeStack = createStackNavigator();
@@ -31,7 +35,7 @@ const HomeStackScreen = () => (
       name="Memorize"
       component={Memorize}
       options={{
-        title: 'MEMORIZA LAS CARTAS',
+        title: 'PRESENTACIÓN',
       }}
     />
     <HomeStack.Screen
@@ -41,6 +45,29 @@ const HomeStackScreen = () => (
         title: 'AYUDA A BIRD',
       }}
     />
+    {/* ============= AQUI VAN LOS PASOS DE MEMORIZE =========*/}
+    <HomeStack.Screen
+          name="First_Step"
+          component={First_Step}
+          options={{
+            title: 'HISTORIA DE JUD',
+      }}      
+     />
+        <HomeStack.Screen
+          name="Second_Step"
+          component={Second_Step}
+          options={{
+            title: 'HISTORIA DE JUD',
+      }}   
+    />
+    <HomeStack.Screen
+          name="Third_Step"
+          component={Third_Step}
+          options={{
+            title: 'HISTORIA DE JUD',
+      }}
+    /> 
+    {/* ============= AQUI VAN LOS NIVELES DE MEMORIZE ========= */}
   </HomeStack.Navigator>
 )
 

@@ -16,6 +16,8 @@ import First_Step from './screens/games/Memorize/Steps/First_Step';
 import Second_Step from './screens/games/Memorize/Steps/Second_Step';
 import Third_Step from './screens/games/Memorize/Steps/Third_Step';
 
+import LevelOne from './screens/games/Memorize/Levels/levelOne/levelOne';
+
 const Tabs = createBottomTabNavigator();
 
 const HomeStack = createStackNavigator();
@@ -68,6 +70,13 @@ const HomeStackScreen = () => (
       }}
     /> 
     {/* ============= AQUI VAN LOS NIVELES DE MEMORIZE ========= */}
+    <HomeStack.Screen
+          name="LevelOne"
+          component={LevelOne}
+          options={{
+            title: 'Nivel uno',
+      }}
+    />
   </HomeStack.Navigator>
 )
 

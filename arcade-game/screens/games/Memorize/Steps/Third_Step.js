@@ -24,7 +24,7 @@ const Third_Step = ({ navigation }) => {
                     style={styles.buttons}>
                     <Text style={styles.textButton}>Ya no quiero</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("Play")}
+                <TouchableOpacity onPress={() => navigation.navigate("LevelOne")}
                     style={styles.buttons}>
                     <Text style={styles.textButton}>Jugar</Text>
                 </TouchableOpacity>

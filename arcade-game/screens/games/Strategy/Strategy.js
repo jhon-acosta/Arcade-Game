@@ -112,32 +112,32 @@ const Strategy = ({ navigation }) => {
 
     return (
         <TouchableWithoutFeedback onPress={jump}>
-          <View style={styles.container}>
-            {isGameOver && <Text>{score}</Text>}
-            <Bird 
-              birdBottom = {birdBottom} 
-              birdLeft = {birdLeft}
-            />
-            <Obstacles 
-              color={'green'}
-              obstacleWidth = {obstacleWidth}
-              obstacleHeight = {obstacleHeight}
-              randomBottom = {obstaclesNegHeight}
-              gap = {gap}
-              obstaclesLeft = {obstaclesLeft}
-            />
-            <Obstacles 
-              color={'yellow'}
-              obstacleWidth = {obstacleWidth}
-              obstacleHeight = {obstacleHeight}
-              randomBottom = {obstaclesNegHeightTwo}
-              gap = {gap}
-              obstaclesLeft = {obstaclesLeftTwo}
-            />
-          </View>
+            <View style={styles.container}>
+                {isGameOver && <Text>{score}</Text>}
+                <Bird
+                    birdBottom={birdBottom}
+                    birdLeft={birdLeft}
+                />
+                <Obstacles
+                    color={'green'}
+                    obstacleWidth={obstacleWidth}
+                    obstacleHeight={obstacleHeight}
+                    randomBottom={obstaclesNegHeight}
+                    gap={gap}
+                    obstaclesLeft={obstaclesLeft}
+                />
+                <Obstacles
+                    color={'yellow'}
+                    obstacleWidth={obstacleWidth}
+                    obstacleHeight={obstacleHeight}
+                    randomBottom={obstaclesNegHeightTwo}
+                    gap={gap}
+                    obstaclesLeft={obstaclesLeftTwo}
+                />
+            </View>
         </TouchableWithoutFeedback>
-      )
-    }
+    )
+}
 
 const styles = StyleSheet.create({
     container: tailwind('h-full justify-center items-center')

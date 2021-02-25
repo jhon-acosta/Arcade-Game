@@ -112,7 +112,7 @@ const Strategy = ({ navigation }) => {
 
     return (
         <TouchableWithoutFeedback onPress={jump}>
-            <View style={styles.container}>
+            <ImageBackground style={styles.container} source={background}>
                 {isGameOver && <Text>{score}</Text>}
                 <Bird
                     birdBottom={birdBottom}
@@ -134,7 +134,7 @@ const Strategy = ({ navigation }) => {
                     gap={gap}
                     obstaclesLeft={obstaclesLeftTwo}
                 />
-            </View>
+            </ImageBackground>
         </TouchableWithoutFeedback>
     )
 }

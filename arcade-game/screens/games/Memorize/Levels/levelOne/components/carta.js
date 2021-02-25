@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Icon, Text, TouchableOpacity, } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, } from 'react-native';
 import tailwind from 'tailwind-rn';
 
 import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
-
-
-import FlipCard from 'react-native-flip-card'
 
 
 export default class Carta extends Component {

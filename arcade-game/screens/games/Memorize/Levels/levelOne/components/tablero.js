@@ -10,10 +10,10 @@ export default class Tablero extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.containerTablero}>
-                {
-                  this.props.baraja
-                        .map((carta) => <Carta icono={carta.icono}/>)
-                }
+                        {
+                            this.props.baraja
+                                .map((carta) => <Carta icono={carta.icono} />)
+                        }
                 </View>
             </View>
         )
@@ -21,7 +21,7 @@ export default class Tablero extends Component {
 }
 
 /* Estilos */
- const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: tailwind('h-full justify-center items-center bg-green-200 '),
     containerTablero: tailwind('h-5/6 w-5/6 flex-wrap mb-28 content-around bg-gray-700 '),
 });

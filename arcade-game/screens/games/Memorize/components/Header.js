@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import tailwind from 'tailwind-rn';
 
 
@@ -11,7 +11,7 @@ export default class Header extends Component {
                     <Text style={styles.textHeader}>Memorize Jud</Text>
                 </View>
                 <View style={styles.viewHeader}>
-                    <Text style={styles.textHeader} >Intentos: 20</Text>
+                    <Text style={styles.textHeader} >Intentos: {this.props.numeroDeIntentos}</Text>
                 </View>
                 <View >
                     <TouchableOpacity style={styles.buttonHeader}>

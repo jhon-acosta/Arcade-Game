@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
+
 import Home from './screens/Home';
 import Memorize from './screens/games/Memorize/Memorize';
 import Strategy from './screens/games/Strategy/Strategy';

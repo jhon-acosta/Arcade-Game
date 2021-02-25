@@ -13,10 +13,10 @@ const Home = ({ navigation }) => {
                 <Text>Memorize cards Jud</Text>
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => navigation.navigate("Strategy")}
+                onPress={() => navigation.navigate("Welcome")}
                 style={styles.buttons}
                 >
-                <Text>Flip Bird</Text>
+                <Text>CONDOR FLY</Text>
             </TouchableOpacity>
         </View>
     )

@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import tailwind from 'tailwind-rn';
 
-
 const Memorize = ({ navigation }) => {
     return (
         <View style={styles.container

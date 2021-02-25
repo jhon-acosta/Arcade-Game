@@ -17,6 +17,8 @@ import Second_Step from './screens/games/Memorize/Steps/Second_Step';
 import Third_Step from './screens/games/Memorize/Steps/Third_Step';
 
 import LevelOne from './screens/games/Memorize/Levels/levelOne/levelOne';
+import Welcome from './screens/games/Strategy/components/Welcome';
+import History from './screens/games/Strategy/components/History';
 
 const Tabs = createBottomTabNavigator();
 
@@ -44,37 +46,52 @@ const HomeStackScreen = () => (
       name="Strategy"
       component={Strategy}
       options={{
-        title: 'AYUDA A BIRD',
+        title: 'Y VUELA, VUELAAA',
       }}
     />
     {/* ============= AQUI VAN LOS PASOS DE MEMORIZE =========*/}
     <HomeStack.Screen
-          name="First_Step"
-          component={First_Step}
-          options={{
-            title: 'HISTORIA DE JUD',
-      }}      
-     />
-        <HomeStack.Screen
-          name="Second_Step"
-          component={Second_Step}
-          options={{
-            title: 'HISTORIA DE JUD',
-      }}   
+      name="First_Step"
+      component={First_Step}
+      options={{
+        title: 'HISTORIA DE JUD',
+      }}
     />
     <HomeStack.Screen
-          name="Third_Step"
-          component={Third_Step}
-          options={{
-            title: 'HISTORIA DE JUD',
+      name="Second_Step"
+      component={Second_Step}
+      options={{
+        title: 'HISTORIA DE JUD',
       }}
-    /> 
+    />
+    <HomeStack.Screen
+      name="Third_Step"
+      component={Third_Step}
+      options={{
+        title: 'HISTORIA DE JUD',
+      }}
+    />
     {/* ============= AQUI VAN LOS NIVELES DE MEMORIZE ========= */}
     <HomeStack.Screen
-          name="LevelOne"
-          component={LevelOne}
-          options={{
-            title: 'Nivel uno',
+      name="LevelOne"
+      component={LevelOne}
+      options={{
+        title: 'Nivel uno',
+      }}
+    />
+    {/* ============= AQUI VA STRATEGY ========= */}
+    <HomeStack.Screen
+      name="Welcome"
+      component={Welcome}
+      options={{
+        title: 'COMENZO LA AVENTURA',
+      }}
+    />
+    <HomeStack.Screen
+      name="History"
+      component={History}
+      options={{
+        title: 'HISTORIA',
       }}
     />
   </HomeStack.Navigator>

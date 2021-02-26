@@ -10,7 +10,7 @@ class Game extends Model
     use HasFactory;
 
     public function departures(){
-        return $this->belongsToMany(Departure::class);
+        return $this->hasMany(Departure::class);
     }
     public function type_game(){
         return $this->belongsToMany(TypeGame::class);

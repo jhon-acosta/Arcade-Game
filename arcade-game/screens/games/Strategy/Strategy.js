@@ -1,14 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, ImageBackground, Dimensions, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { StyleSheet, ImageBackground, Dimensions, Text, TouchableWithoutFeedback } from 'react-native';
 import tailwind from 'tailwind-rn';
-import Bird from './components/Bird';
-import Obstacles from './components/Obstacles';
 
-import background from '../../../assets/imgStrategy/background.png'
+import background from '../../../assets/imgStrategy/background.png';
+
+import Bird from './components/Bird';
+import Obstacles from './components/Obstacles'
 
 const Strategy = ({ navigation }) => {
-
     const screenWidth = Dimensions.get("screen").width;
     const screenHeight = Dimensions.get("screen").height;
     const birdLeft = screenWidth / 2;
@@ -99,6 +98,7 @@ const Strategy = ({ navigation }) => {
             )
         ) {
             console.log('game over')
+            navigation.navigate('GameOver');
             gameOver()
         }
     })
@@ -134,7 +134,9 @@ const Strategy = ({ navigation }) => {
                     gap={gap}
                     obstaclesLeft={obstaclesLeftTwo}
                 />
+                
             </ImageBackground>
+            
         </TouchableWithoutFeedback>
     )
 }

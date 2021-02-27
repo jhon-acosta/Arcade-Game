@@ -12,7 +12,6 @@ const Welcome = ({ navigation }) => {
     });
     if (!loaded) {
         return null;
-
     }
     return (
         <ImageBackground style={styles.container} source={background}>

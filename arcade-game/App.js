@@ -37,6 +37,7 @@ const HomeStackScreen = () => (
         title: 'INICIO',
       }}
     />
+    {/* ============= AQUI VAN LOS PASOS DE MEMORIZE =========*/}
     <HomeStack.Screen
       name="Memorize"
       component={Memorize}
@@ -44,14 +45,6 @@ const HomeStackScreen = () => (
         title: 'PRESENTACIÓN',
       }}
     />
-    <HomeStack.Screen
-      name="Strategy"
-      component={Strategy}
-      options={{
-        title: 'Y VUELA, VUELAAA',
-      }}
-    />
-    {/* ============= AQUI VAN LOS PASOS DE MEMORIZE =========*/}
     <HomeStack.Screen
       name="First_Step"
       component={First_Step}
@@ -83,6 +76,13 @@ const HomeStackScreen = () => (
     />
     {/* ============= AQUI VA STRATEGY ========= */}
     <HomeStack.Screen
+      name="Strategy"
+      component={Strategy}
+      options={{
+        title: 'ACOMPAÑAME',
+      }}
+    />
+    <HomeStack.Screen
       name="Welcome"
       component={Welcome}
       options={{
@@ -100,7 +100,7 @@ const HomeStackScreen = () => (
       name="GameOver"
       component={GameOver}
       options={{
-        title: 'Oops!',
+        title: 'OOPS!',
       }}
     />
   </HomeStack.Navigator>

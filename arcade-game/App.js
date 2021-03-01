@@ -18,9 +18,13 @@ import Third_Step from './screens/games/Memorize/Steps/Third_Step';
 
 import LevelOne from './screens/games/Memorize/Levels/levelOne/levelOne';
 
-import Welcome from './screens/games/Strategy/components/Welcome';
-import History from './screens/games/Strategy/components/History';
+import Welcome from './screens/games/Strategy/screens/Welcome';
+import History from './screens/games/Strategy/screens/History';
 import GameOver from './screens/games/Strategy/screens/GameOver';
+import Login from './screens/Login';
+import Register from './screens/Register';
+import Invitate from './screens/Invitate';
+import Credentials from './screens/Credentials';
 
 const Tabs = createBottomTabNavigator();
 
@@ -35,6 +39,34 @@ const HomeStackScreen = () => (
       component={Home}
       options={{
         title: 'INICIO',
+      }}
+    />
+    <HomeStack.Screen
+      name="Login"
+      component={Login}
+      options={{
+        title: 'INICIAR SESION',
+      }}
+    />
+    <HomeStack.Screen
+      name="Register"
+      component={Register}
+      options={{
+        title: 'REGISTRATE',
+      }}
+    />
+    <HomeStack.Screen
+      name="Invitate"
+      component={Invitate}
+      options={{
+        title: 'INVITADO',
+      }}
+    />
+    <HomeStack.Screen
+      name="Credentials"
+      component={Credentials}
+      options={{
+        title: 'MODO DE INICIAR',
       }}
     />
     {/* ============= AQUI VAN LOS PASOS DE MEMORIZE =========*/}
@@ -124,7 +156,7 @@ const GlobalStackScreen = () => (
       name="GlobalScore"
       component={GlobalScore}
       options={{
-        title: 'PUNTIACION GLOBAL',
+        title: 'PUNTUACION GLOBAL',
       }}
     />
   </GlobalStack.Navigator>

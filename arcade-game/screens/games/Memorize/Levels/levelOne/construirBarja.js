@@ -1,3 +1,4 @@
+import shuffle from 'lodash.shuffle'
 import FontAwesonmeClasses from '../../../../../utils/fontAwesonmeClasses'
 
 const NUMERO_DE_CARTAS = 18;
@@ -17,7 +18,7 @@ const construirBaraja = () => {
         cartas.push({ ...carta });
 
     }
-    return cartas;
+    return shuffle(cartas);
 };
 
 export default construirBaraja

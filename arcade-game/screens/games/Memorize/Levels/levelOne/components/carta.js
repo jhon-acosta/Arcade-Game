@@ -2,29 +2,20 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Touchable, TouchableOpacity, } from 'react-native';
 import tailwind from 'tailwind-rn';
 import CardFlip from 'react-native-card-flip';
-
+import FlipCard from 'react-native-flip-card'
 
 export default class Carta extends Component {
     render() {
         return (
-            <View>
-                <CardFlip style={styles.cardContainer} ref={(card) => this.card = card}>
-                    <TouchableOpacity   activeOpacity={1}
-                                         style={[styles.card, styles.card1]}
-                                        onPress={() => this.card.flip()}>
-                        <Text style={styles.label}>
-                        Toca
-                        </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                    activeOpacity={1}
-                    style={[styles.card, styles.card2]}
-                    onPress={() => this.card.flip()}>
-                        <Text style={styles.label}>
-                            {this.props.icono}
-                        </Text> 
-                    </TouchableOpacity>
-                </CardFlip>
+            <View style={styles.cardContainer} onPress={this.props.seleccionarCarta}>
+                <FlipCard onFlipEnd={(isFlipEnd) => { this.props.estaSiendoComparada || this.props.fueAdivinada, console.log('isFlipEnd', isFlipEnd) }}>
+                    <View style={[styles.card, styles.card1]}>
+                        <Text style={styles.label}>Toca</Text>
+                    </View>
+                    <View style={[styles.card, styles.card2]}>
+                        <Text style={styles.label}>{this.props.icono}</Text>
+                    </View>
+                </FlipCard>
             </View>
         )
     }
@@ -41,37 +32,40 @@ export default class Carta extends Component {
 
 const styles = StyleSheet.create({
     cardContainer: {
-      width: 60,
-      height: 60,
-      margin: 10,
-      /* Quitar esto cuando este listo */
-      backgroundColor: 'white',
+        width: 60,
+        height: 60,
+        margin: 10,
+        /* Quitar esto cuando este listo */
+        /* backgroundColor: 'white', */
     },
     card: {
-      width: 60,
-      height: 60,
-      /* Color rojo de tailwind */
-      backgroundColor: '#7F1D1D',
-      borderRadius: 5,
-      shadowColor: 'rgba(0,0,0,0.5)',
-      shadowOffset: {
-        width: 0,
-        height: 1,
-      },
-      shadowOpacity: 0.5,
+        width: 60,
+        height: 60,
+        /* Color rojo de tailwind */
+        backgroundColor: '#7F1D1D',
+        borderRadius: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+
+        elevation: 8,
     },
     card1: {
         /* Color rojo de tailwind */
-      backgroundColor: '#7F1D1D',
+        backgroundColor: '#7F1D1D',
     },
     card2: {
         /* Color gris de tailwind */
-      backgroundColor: '#111827',
+        backgroundColor: '#111827',
     },
     label: {
-      textAlign: 'center',
-      fontFamily: 'System',
-      color: '#ffffff',
-      backgroundColor: 'transparent',
+        textAlign: 'center',
+        fontFamily: 'System',
+        color: '#ffffff',
+        backgroundColor: 'transparent',
     },
-  });
+});

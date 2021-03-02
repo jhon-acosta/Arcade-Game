@@ -1,11 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, ImageBackground, Dimensions, Text, TouchableWithoutFeedback, View } from 'react-native';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { StyleSheet, ImageBackground, Dimensions, Text, TouchableWithoutFeedback } from 'react-native';
 import tailwind from 'tailwind-rn';
-import Bird from './components/Bird';
-import Obstacles from './components/Obstacles';
 
-import background from '../../../assets/imgStrategy/background.png'
+import background from '../../../assets/imgStrategy/background.png';
+
+import Bird from './components/Bird';
+import Obstacles from './components/Obstacles'
 
 const Strategy = ({ navigation }) => {
 
@@ -44,7 +44,7 @@ const Strategy = ({ navigation }) => {
     const jump = () => {
         if (!isGameOver && (birdBottom < screenHeight)) {
             setBirdBottom(birdBottom => birdBottom + 50)
-            console.log('jumped')
+            //console.log('jumped')
         }
     }
 
@@ -78,15 +78,15 @@ const Strategy = ({ navigation }) => {
             setObstaclesLeftTwo(screenWidth)
             setObstaclesNegHeightTwo(- Math.random() * 100);
             setScore(score + 1)
-            console.log(score)
+            //console.log(score)
         }
     }, [obstaclesLeftTwo])
 
     //check for collisions
     useEffect(() => {
-        console.log(obstaclesLeft)
-        console.log(screenWidth / 2)
-        console.log(obstaclesLeft > screenWidth / 2)
+        //console.log(obstaclesLeft)
+        //console.log(screenWidth / 2)
+        //console.log(obstaclesLeft > screenWidth / 2)
         if (
             ((birdBottom < (obstaclesNegHeight + obstacleHeight + 30) ||
                 birdBottom > (obstaclesNegHeight + obstacleHeight + gap - 30)) &&
@@ -98,7 +98,8 @@ const Strategy = ({ navigation }) => {
                 (obstaclesLeftTwo > screenWidth / 2 - 30 && obstaclesLeftTwo < screenWidth / 2 + 30)
             )
         ) {
-            console.log('game over')
+            //console.log('game over')
+            navigation.navigate('GameOver');
             gameOver()
         }
     })
@@ -109,6 +110,14 @@ const Strategy = ({ navigation }) => {
         clearInterval(obstaclesLeftTimerIdTwo)
         setIsGameOver(true);
     }
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <Text style={styles.textHeader}>{score + 1}</Text>
+            )
+        });
+    }, [navigation, score]);
 
     return (
         <TouchableWithoutFeedback onPress={jump}>
@@ -134,13 +143,16 @@ const Strategy = ({ navigation }) => {
                     gap={gap}
                     obstaclesLeft={obstaclesLeftTwo}
                 />
+
             </ImageBackground>
+
         </TouchableWithoutFeedback>
     )
 }
 
 const styles = StyleSheet.create({
-    container: tailwind('h-full justify-center items-center')
+    container: tailwind('h-full justify-center items-center'),
+    textHeader: tailwind('bg-green-600 px-5 py-4 text-lg text-white font-bold')
 });
 
 export default Strategy;

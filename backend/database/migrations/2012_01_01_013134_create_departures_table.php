@@ -15,9 +15,9 @@ class CreateDeparturesTable extends Migration
     {
         Schema::create('departures', function (Blueprint $table) {
             $table->id();
-            $table->string('attempts');
             $table->string('level');
             $table->string('time');
+            $table->string('score');
 
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')

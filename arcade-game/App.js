@@ -6,7 +6,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-
 import Home from './screens/Home';
 import Memorize from './screens/games/Memorize/Memorize';
 import Strategy from './screens/games/Strategy/Strategy';
@@ -18,8 +17,14 @@ import Second_Step from './screens/games/Memorize/Steps/Second_Step';
 import Third_Step from './screens/games/Memorize/Steps/Third_Step';
 
 import LevelOne from './screens/games/Memorize/Levels/levelOne/levelOne';
-import Welcome from './screens/games/Strategy/components/Welcome';
-import History from './screens/games/Strategy/components/History';
+
+import Welcome from './screens/games/Strategy/screens/Welcome';
+import History from './screens/games/Strategy/screens/History';
+import GameOver from './screens/games/Strategy/screens/GameOver';
+import Login from './screens/Login';
+import Register from './screens/Register';
+import Invitate from './screens/Invitate';
+import Credentials from './screens/Credentials';
 
 const Tabs = createBottomTabNavigator();
 
@@ -37,20 +42,41 @@ const HomeStackScreen = () => (
       }}
     />
     <HomeStack.Screen
+      name="Login"
+      component={Login}
+      options={{
+        title: 'INICIAR SESION',
+      }}
+    />
+    <HomeStack.Screen
+      name="Register"
+      component={Register}
+      options={{
+        title: 'REGISTRATE',
+      }}
+    />
+    <HomeStack.Screen
+      name="Invitate"
+      component={Invitate}
+      options={{
+        title: 'INVITADO',
+      }}
+    />
+    <HomeStack.Screen
+      name="Credentials"
+      component={Credentials}
+      options={{
+        title: 'MODO DE INICIAR',
+      }}
+    />
+    {/* ============= AQUI VAN LOS PASOS DE MEMORIZE =========*/}
+    <HomeStack.Screen
       name="Memorize"
       component={Memorize}
       options={{
         title: 'PRESENTACIÓN',
       }}
     />
-    <HomeStack.Screen
-      name="Strategy"
-      component={Strategy}
-      options={{
-        title: 'Y VUELA, VUELAAA',
-      }}
-    />
-    {/* ============= AQUI VAN LOS PASOS DE MEMORIZE =========*/}
     <HomeStack.Screen
       name="First_Step"
       component={First_Step}
@@ -82,6 +108,13 @@ const HomeStackScreen = () => (
     />
     {/* ============= AQUI VA STRATEGY ========= */}
     <HomeStack.Screen
+      name="Strategy"
+      component={Strategy}
+      options={{
+        title: 'ACOMPAÑAME',
+      }}
+    />
+    <HomeStack.Screen
       name="Welcome"
       component={Welcome}
       options={{
@@ -93,6 +126,13 @@ const HomeStackScreen = () => (
       component={History}
       options={{
         title: 'HISTORIA',
+      }}
+    />
+    <HomeStack.Screen
+      name="GameOver"
+      component={GameOver}
+      options={{
+        title: 'OOPS!',
       }}
     />
   </HomeStack.Navigator>
@@ -116,7 +156,7 @@ const GlobalStackScreen = () => (
       name="GlobalScore"
       component={GlobalScore}
       options={{
-        title: 'PUNTIACION GLOBAL',
+        title: 'PUNTUACION GLOBAL',
       }}
     />
   </GlobalStack.Navigator>

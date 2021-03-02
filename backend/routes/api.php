@@ -30,10 +30,10 @@ Route::put("/user/{id}",[UserController::class ,'update']);
 Route::delete("/user/{id}",[UserController::class ,'destroy']);
 
 //TYPES
-Route::get("/types_games",[TypeGameController::class , 'index']);
-Route::post("/type_game",[TypeGameController::class,'store']);
-Route::put("/type_game/{id}",[TypeGameController::class ,'update']);
-Route::delete("/type_game/{id}",[TypeGameController::class ,'destroy']);
+Route::get("/types-games",[TypeGameController::class , 'index']);
+Route::post("/type-game",[TypeGameController::class,'store']);
+Route::put("/type-game/{id}",[TypeGameController::class ,'update']);
+Route::delete("/type-game/{id}",[TypeGameController::class ,'destroy']);
 
 //GAMES
 Route::get("/games",[GameController::class , 'index']);

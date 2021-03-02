@@ -3,7 +3,6 @@ import { ImageBackground } from 'react-native';
 import condor from '../../../../assets/imgStrategy/condorFly.png'
 
 const Bird = ({ birdBottom, birdLeft }) => {
-
     const birdWith = 100;
     const birdHeight = 60;
     return (

@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TypeGameController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\DepartureController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,5 @@ Route::post("/departure",[DepartureController::class,'store']);
 Route::put("/departure/{id}",[DepartureController::class ,'update']);
 Route::delete("/departure/{id}",[DepartureController::class ,'destroy']);
 
+//LOGIN
+Route::get("/login/{email}",[LoginController::class , 'login']);

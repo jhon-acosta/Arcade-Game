@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, Alert,  ImageBackground } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, Alert, ImageBackground } from 'react-native';
 import tailwind from 'tailwind-rn';
-import { useFonts } from 'expo-font';
-import axios from "axios";;
+import axios from "axios";
+import * as SQLite from 'expo-sqlite';
+
+const db = SQLite.openDatabase('db.arcade');
 
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
@@ -10,24 +12,64 @@ import background from '../assets/imgGlobal/background.png';
 
 const API = 'http://192.168.1.5:8000/api';
 
-const Login = ()=> {
+const Login = ({ navigation }) => {
 
-        return (
-            <ImageBackground style={styles.container} source={background}>
-                <Text style={styles.title}>INGRESA TU:</Text>
-                <FontAwesome name="gamepad" size={24} style={styles.iconGame} />
-                <View style={styles.login}>
-                    <TextInput style={styles.text} placeholder="Correo electrónico" onChangeText={value => this.handleChangeText('email', value)} />
-                    <TextInput style={styles.text} placeholder="Contraseña" onChangeText={value => this.handleChangeText('password', value)} />
-                    <View style={styles.containterButton}>
-                        <TouchableOpacity style={styles.singInButton}>
-                            <Text style={{ textAlign: 'center', color: 'white', fontFamily: 'Montserrat', fontSize: 20 }}>INGRESAR <AntDesign name="login" size={24} style={styles.icon} /></Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </ImageBackground>
-        )
+    const initialLogin = {
+        email: '',
+        password: ''
     }
+    const [loginUser, setLoginUser] = useState(initialLogin);
+
+    const handleChangeText = (name, value) => {
+        setLoginUser({ ...loginUser, [name]: value })
+        console.log(loginUser)
+    }
+
+    const login = async () => {
+        await axios.get(`${API}/login/${loginUser.email}`)
+            .then(res => {
+                const datos = res.data.data
+                if (datos.email === loginUser.email &&
+                    datos.password === loginUser.password
+                ) {
+                    db.transaction(
+                        tx => {
+                            tx.executeSql(`insert into arcade(id,name,lastname,nickname,email,password, age) values (?,?,?,?,?,?,?)`,
+                                [datos.id, datos.name, datos.lastname, datos.nickname, datos.email, datos.password, datos.age]);
+                        },
+                        null,
+                    );
+                    navigation.push('Home');
+                } else {
+                    Alert.alert('INTÉNTALO DE NUEVO', 'Campos vacíos o incorrectos')
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        db.transaction(tx => {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS arcade(id INT, name TEXT, lastname TEXT, nickname TEXT, email TEXT, password TEXT, age TEXT)');
+        });
+    }, []);
+    return (
+        <ImageBackground style={styles.container} source={background}>
+            <Text style={styles.title}>INGRESA TU:</Text>
+            <FontAwesome name="gamepad" size={24} style={styles.iconGame} />
+            <View style={styles.login}>
+                <TextInput style={styles.text} placeholder="Correo electrónico" onChangeText={value => handleChangeText('email', value)} />
+                <TextInput style={styles.text} placeholder="Contraseña" onChangeText={value => handleChangeText('password', value)} />
+                <View style={styles.containterButton}>
+                    <TouchableOpacity style={styles.singInButton} onPress={() => login()}>
+                        <Text style={{ textAlign: 'center', color: 'white', fontFamily: 'Montserrat', fontSize: 20 }}>INGRESAR <AntDesign name="login" size={24} style={styles.icon} /></Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </ImageBackground>
+    )
+}
 
 const styles = StyleSheet.create({
     container: tailwind('flex h-full justify-center items-center bg-yellow-400'),

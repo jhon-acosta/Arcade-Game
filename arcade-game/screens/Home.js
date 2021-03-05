@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import tailwind from 'tailwind-rn';
+import * as SQLite from 'expo-sqlite';
+
+const db = SQLite.openDatabase('db.arcade');
 
 const Home = ({ navigation }) => {
-    const [iniciated, setIniciated] = useState(user);
-
-    const user = 'Jhon';
+    const [iniciated, setIniciated] = useState({
+        name:'user'
+    });
     
     useEffect(() => {
-        if(iniciated == ''){
-            navigation.push("Credentials")
+        /*db.transaction(
+           async tx => {
+                //tx.executeSql('DROP TABLE arcade')
+                await tx.executeSql('select * from arcade', [], (_, { rows }) =>
+                    //setIniciated(rows._array)
+                    console.log(rows._array)
+                );
+            },
+            null,
+        );*/
+        if(iniciated.name == ''){
+            navigation.push('Credentials')
         }
     })
     return (

@@ -14,7 +14,7 @@ const GameOver = ({ navigation }) => {
             <TouchableOpacity style={styles.buttonTried} onPress={() => navigation.push("Strategy")}>
                 <Text style={{ fontFamily: 'Montserrat', color: 'white' }}>NUEVO INTENTO</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.push("Home")}
+            <TouchableOpacity onPress={() => navigation.navigate("Home")}
                 style={styles.buttonHome}>
                 <Text style={{ fontFamily: 'Montserrat', color: 'white' }}>INICIO</Text>
             </TouchableOpacity>

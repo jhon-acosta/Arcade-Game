@@ -1,30 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect, useLayoutEffect } from 'react'
+import { StyleSheet, View, Text, TouchableOpacity, Modal } from 'react-native';
 import tailwind from 'tailwind-rn';
 import * as SQLite from 'expo-sqlite';
 
 const db = SQLite.openDatabase('db.arcade');
 
 const Home = ({ navigation }) => {
+
     const [iniciated, setIniciated] = useState({
-        name:'user'
+        nickname: ''
     });
-    
-    useEffect(() => {
-        /*db.transaction(
-           async tx => {
-                //tx.executeSql('DROP TABLE arcade')
-                await tx.executeSql('select * from arcade', [], (_, { rows }) =>
-                    //setIniciated(rows._array)
-                    console.log(rows._array)
+
+    const getData = () => {
+        db.transaction(
+            tx => {
+                // tx.executeSql('DROP TABLE arcade')
+                // setIniciated('')
+                tx.executeSql('CREATE TABLE IF NOT EXISTS arcade(id INT, name TEXT, lastname TEXT, nickname TEXT, email TEXT, password TEXT, age TEXT)');
+                tx.executeSql('select * from arcade', [], (_, { rows }) =>
+                    rows._array[0] !== undefined ? setIniciated({ nickname: rows._array[0].nickname }) : navigation.navigate('Credentials')
+                    //console.log(rows._array)
                 );
             },
             null,
-        );*/
-        if(iniciated.name == ''){
-            navigation.push('Credentials')
-        }
+        );
+    }
+
+    useEffect(() => {
+        getData();
     })
+
     return (
         <View style={styles.container}>
             <TouchableOpacity

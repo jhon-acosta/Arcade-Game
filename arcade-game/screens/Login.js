@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, Alert, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, Alert, ImageBackground, Modal } from 'react-native';
 import tailwind from 'tailwind-rn';
 import axios from "axios";
 import * as SQLite from 'expo-sqlite';
@@ -22,7 +22,7 @@ const Login = ({ navigation }) => {
 
     const handleChangeText = (name, value) => {
         setLoginUser({ ...loginUser, [name]: value })
-        console.log(loginUser)
+        //console.log(loginUser)
     }
 
     const login = async () => {
@@ -35,11 +35,11 @@ const Login = ({ navigation }) => {
                     db.transaction(
                         tx => {
                             tx.executeSql(`insert into arcade(id,name,lastname,nickname,email,password, age) values (?,?,?,?,?,?,?)`,
-                                [datos.id, datos.name, datos.lastname, datos.nickname, datos.email, datos.password, datos.age]);
+                                [datos.id, datos.name, datos.lastname, datos.nickname, datos.email, datos.password, datos.age]);                              
                         },
                         null,
                     );
-                    navigation.push('Home');
+                    navigation.pop('Home');
                 } else {
                     Alert.alert('INTÉNTALO DE NUEVO', 'Campos vacíos o incorrectos')
                 }
@@ -48,12 +48,6 @@ const Login = ({ navigation }) => {
                 console.log(err)
             })
     }
-
-    useEffect(() => {
-        db.transaction(tx => {
-            tx.executeSql('CREATE TABLE IF NOT EXISTS arcade(id INT, name TEXT, lastname TEXT, nickname TEXT, email TEXT, password TEXT, age TEXT)');
-        });
-    }, []);
     return (
         <ImageBackground style={styles.container} source={background}>
             <Text style={styles.title}>INGRESA TU:</Text>

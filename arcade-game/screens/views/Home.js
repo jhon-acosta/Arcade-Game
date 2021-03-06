@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, Modal } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import tailwind from 'tailwind-rn';
 import * as SQLite from 'expo-sqlite';
 const db = SQLite.openDatabase('db.arcade');

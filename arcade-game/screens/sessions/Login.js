@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Alert, ImageBackground, Modal } from 'react-native';
 import tailwind from 'tailwind-rn';
 import axios from "axios";
 import * as SQLite from 'expo-sqlite';
+import { useFonts } from 'expo-font';
 
 const db = SQLite.openDatabase('db.arcade');
 
 import { AntDesign } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import background from '../../assets/background.png';
 
 const API = 'http://192.168.1.5:8000/api';
@@ -36,7 +38,7 @@ const Login = ({ navigation }) => {
                     db.transaction(
                         tx => {
                             tx.executeSql(`insert into arcade(id,name,lastname,nickname,email,password, age) values (?,?,?,?,?,?,?)`,
-                                [datos.id, datos.name, datos.lastname, datos.nickname, datos.email, datos.password, datos.age]);                              
+                                [datos.id, datos.name, datos.lastname, datos.nickname, datos.email, datos.password, datos.age]);
                         },
                         null,
                     );
@@ -49,10 +51,17 @@ const Login = ({ navigation }) => {
                 console.log(err)
             })
     }
+    const [loaded] = useFonts({
+        Montserrat: require('../../assets/fonts/Montserrat.ttf'),
+    });
+    if (!loaded) {
+        return null;
+    }
     return (
+
         <ImageBackground style={styles.container} source={background}>
-            <Text style={styles.title}>INGRESA TU:</Text>
-            <FontAwesome name="gamepad" size={24} style={styles.iconGame} />
+            <Text style={{ fontFamily: 'Montserrat', fontSize: 30, padding: 20, color: 'white' }}>ACCEDER</Text>
+            <Text><MaterialIcons name="email" size={40} color="black" /><FontAwesome5 name="key" size={30} color="black" /></Text>
             <View style={styles.login}>
                 <TextInput style={styles.text} placeholder="Correo electrónico" onChangeText={value => handleChangeText('email', value)} />
                 <TextInput style={styles.text} placeholder="Contraseña" onChangeText={value => handleChangeText('password', value)} />

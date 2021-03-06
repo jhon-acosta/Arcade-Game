@@ -2,7 +2,10 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import tailwind from 'tailwind-rn';
 import { useFonts } from 'expo-font';
+
 import { FontAwesome } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 import background from '../../assets/background.png';
 
@@ -21,10 +24,10 @@ const Credentials = ({ navigation }) => {
             <View style={styles.containterButton}>
                 <Text style={styles.mood}>CREDENCIALES</Text>
                 <TouchableOpacity style={styles.singInButton} onPress={() => navigation.navigate("Login")}>
-                    <Text style={{ textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Montserrat' }}> INICIAR SESIÓN </Text>
+                    <Text style={{ textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Montserrat' }}> INICIAR SESIÓN <Ionicons name="enter-outline" size={24} color="white" /></Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.singInButton} onPress={() => navigation.navigate("Register")}>
-                    <Text style={{ textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Montserrat' }}> REGISTRATE </Text>
+                    <Text style={{ textAlign: 'center', color: 'white', fontSize: 20, fontFamily: 'Montserrat' }}> REGISTRATE  <Feather name="user-plus" size={26} color="white" /></Text>
                 </TouchableOpacity>
                 <Text style={styles.mood}>MODO</Text>
                 <TouchableOpacity style={styles.singInButton} onPress={() => navigation.navigate("Invitate")}>

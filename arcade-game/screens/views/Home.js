@@ -28,10 +28,12 @@ const Home = ({ navigation }) => {
 
     useEffect(() => {
         getData();
+        console.log(iniciated)
     })
 
     return (
         <View style={styles.container}>
+            <Text>{iniciated.nickname}</Text>
             <TouchableOpacity
                 onPress={() => navigation.navigate("Memorize")}
                 style={styles.buttons}

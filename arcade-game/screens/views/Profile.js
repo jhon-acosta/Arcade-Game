@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import tailwind from 'tailwind-rn';
 import * as SQLite from 'expo-sqlite';
-import { StackActions } from '@react-navigation/native';
 
 const db = SQLite.openDatabase('db.arcade');
 
@@ -28,7 +27,7 @@ const Profile = ({ navigation }) => {
             },
             null,
         );
-        navigation.navigate('Home');
+        navigation.push('Home');
     }
     return (
         <View style={styles.container}>
@@ -36,7 +35,7 @@ const Profile = ({ navigation }) => {
                 Perfil de Usuario
             </Text>
             <TouchableOpacity style={styles.logoutButton} onPress={()=>logout()}>
-                <Text >CERRAR SESION</Text>
+                <Text>CERRAR SESION</Text>
             </TouchableOpacity>
         </View>
     )

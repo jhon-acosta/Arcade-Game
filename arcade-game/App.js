@@ -1,195 +1,38 @@
-import React from 'react';
+import React from 'react'
+import { HomeStack, ProfileStack, GlobalScoreStack } from "./screens/routes/routes.stack";
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
-import { Fontisto } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import Home from './screens/Home';
-import Memorize from './screens/games/Memorize/Memorize';
-import Strategy from './screens/games/Strategy/Strategy';
-import Profile from './screens/Profile';
-import GlobalScore from './screens/GlobalScore';
-
-import First_Step from './screens/games/Memorize/Steps/First_Step';
-import Second_Step from './screens/games/Memorize/Steps/Second_Step';
-import Third_Step from './screens/games/Memorize/Steps/Third_Step';
-
-import LevelOne from './screens/games/Memorize/Levels/levelOne/levelOne';
-
-import Welcome from './screens/games/Strategy/screens/Welcome';
-import History from './screens/games/Strategy/screens/History';
-import GameOver from './screens/games/Strategy/screens/GameOver';
-import Login from './screens/Login';
-import Register from './screens/Register';
-import Invitate from './screens/Invitate';
-import Credentials from './screens/Credentials';
-
-const Tabs = createBottomTabNavigator();
-
-const HomeStack = createStackNavigator();
-const ProfileStack = createStackNavigator();
-const GlobalStack = createStackNavigator();
-
-const HomeStackScreen = () => (
-  <HomeStack.Navigator>
-    <HomeStack.Screen
-      name="Home"
-      component={Home}
-      options={{
-        title: 'INICIO',
-      }}
-    />
-    <HomeStack.Screen
-      name="Login"
-      component={Login}
-      options={{
-        title: 'INICIAR SESION',
-      }}
-    />
-    <HomeStack.Screen
-      name="Register"
-      component={Register}
-      options={{
-        title: 'REGISTRATE',
-      }}
-    />
-    <HomeStack.Screen
-      name="Invitate"
-      component={Invitate}
-      options={{
-        title: 'INVITADO',
-      }}
-    />
-    <HomeStack.Screen
-      name="Credentials"
-      component={Credentials}
-      options={{
-        title: 'MODO DE INICIAR',
-      }}
-    />
-    {/* ============= AQUI VAN LOS PASOS DE MEMORIZE =========*/}
-    <HomeStack.Screen
-      name="Memorize"
-      component={Memorize}
-      options={{
-        title: 'PRESENTACIÓN',
-      }}
-    />
-    <HomeStack.Screen
-      name="First_Step"
-      component={First_Step}
-      options={{
-        title: 'HISTORIA DE JUD',
-      }}
-    />
-    <HomeStack.Screen
-      name="Second_Step"
-      component={Second_Step}
-      options={{
-        title: 'HISTORIA DE JUD',
-      }}
-    />
-    <HomeStack.Screen
-      name="Third_Step"
-      component={Third_Step}
-      options={{
-        title: 'HISTORIA DE JUD',
-      }}
-    />
-    {/* ============= AQUI VAN LOS NIVELES DE MEMORIZE ========= */}
-    <HomeStack.Screen
-      name="LevelOne"
-      component={LevelOne}
-      options={{
-        title: 'Nivel uno',
-      }}
-    />
-    {/* ============= AQUI VA STRATEGY ========= */}
-    <HomeStack.Screen
-      name="Strategy"
-      component={Strategy}
-      options={{
-        title: 'ACOMPAÑAME',
-      }}
-    />
-    <HomeStack.Screen
-      name="Welcome"
-      component={Welcome}
-      options={{
-        title: 'COMENZO LA AVENTURA',
-      }}
-    />
-    <HomeStack.Screen
-      name="History"
-      component={History}
-      options={{
-        title: 'HISTORIA',
-      }}
-    />
-    <HomeStack.Screen
-      name="GameOver"
-      component={GameOver}
-      options={{
-        title: 'OOPS!',
-      }}
-    />
-  </HomeStack.Navigator>
-)
-
-const ProfileStackScreen = () => (
-  <ProfileStack.Navigator>
-    <ProfileStack.Screen
-      name="Profile"
-      component={Profile}
-      options={{
-        title: 'PERFIL DE USUARIO',
-      }}
-    />
-  </ProfileStack.Navigator>
-)
-
-const GlobalStackScreen = () => (
-  <GlobalStack.Navigator>
-    <GlobalStack.Screen
-      name="GlobalScore"
-      component={GlobalScore}
-      options={{
-        title: 'PUNTUACION GLOBAL',
-      }}
-    />
-  </GlobalStack.Navigator>
-)
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Tabs.Navigator>
-        <Tabs.Screen
-          name="Home"
-          component={HomeStackScreen}
-          options={{
-            title: 'INICIO',
-            tabBarIcon: () => <Ionicons name="home" size={24} color="black" />
-          }} />
-        <Tabs.Screen
-          name="Profile"
-          component={ProfileStackScreen}
-          options={{
-            title: 'PERFIL',
-            tabBarIcon: () => <FontAwesome name="user" size={24} color="black" />
-          }} />
-        <Tabs.Screen
-          name="GlobalScore"
-          component={GlobalStackScreen}
-          options={{
-            title: 'PUNTOS GLOBALES',
-            tabBarIcon: () => <Fontisto name="world" size={23} color="black" />
-          }} />
-      </Tabs.Navigator>
+      <Drawer.Navigator>
+        <Drawer.Screen 
+        name="Home" 
+        component={HomeStack}
+        options={{
+          title:"INICIO"
+        }}
+        />
+        <Drawer.Screen 
+        name="Profile" 
+        component={ProfileStack}
+        options={{
+          title:'PERFIL'
+        }}
+        />
+        <Drawer.Screen 
+        name="GloblaScore" 
+        component={GlobalScoreStack} 
+        options={{
+          title:"PUNTUACÍON GLOBAL"
+        }}
+        />
+      </Drawer.Navigator>
     </NavigationContainer>
-  );
+  )
 }
 
-export default App;
+export default App

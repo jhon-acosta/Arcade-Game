@@ -4,11 +4,11 @@ import tailwind from 'tailwind-rn';
 import { useFonts } from 'expo-font';
 import { FontAwesome } from '@expo/vector-icons';
 
-import background from '../assets/imgGlobal/background.png';
+import background from '../../assets/background.png';
 
 const Credentials = ({ navigation }) => {
     const [loaded] = useFonts({
-        Montserrat: require('../assets/fonts/Montserrat.ttf'),
+        Montserrat: require('../../assets/fonts/Montserrat.ttf'),
     });
     if (!loaded) {
         return null;

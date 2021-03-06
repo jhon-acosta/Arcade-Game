@@ -5,9 +5,9 @@ import axios from "axios";
 
 import { AntDesign } from '@expo/vector-icons';
 
-import background from '../assets/imgGlobal/background.png';
+import background from '../../assets/background.png';
 
-const API = 'https://arcade-game-pi.herokuapp.com/api';
+const API = 'http://192.168.1.5:8000/api';
 
 const Register = ({ navigation }) => {
 
@@ -34,7 +34,7 @@ const Register = ({ navigation }) => {
         } else {
             await axios.post(`${API}/user`, newUser)
                 .then(response => {
-                    navigation.navigate("Home")
+                    navigation.navigate("Login")
                     Alert.alert('Bienvenidp', 'Registro exitoso')
                 })
                 .catch((error) => {

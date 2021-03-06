@@ -8,7 +8,7 @@ const db = SQLite.openDatabase('db.arcade');
 
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import background from '../assets/imgGlobal/background.png';
+import background from '../../assets/background.png';
 
 const API = 'http://192.168.1.5:8000/api';
 
@@ -28,6 +28,7 @@ const Login = ({ navigation }) => {
     const login = async () => {
         await axios.get(`${API}/login/${loginUser.email}`)
             .then(res => {
+                console.log(res.data.data)
                 const datos = res.data.data
                 if (datos.email === loginUser.email &&
                     datos.password === loginUser.password
@@ -39,7 +40,7 @@ const Login = ({ navigation }) => {
                         },
                         null,
                     );
-                    navigation.pop('Home');
+                    navigation.navigate('Home');
                 } else {
                     Alert.alert('INTÉNTALO DE NUEVO', 'Campos vacíos o incorrectos')
                 }

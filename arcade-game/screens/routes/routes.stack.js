@@ -1,4 +1,6 @@
 import React from 'react';
+import { StyleSheet, Text } from 'react-native';
+import tailwind from 'tailwind-rn';
 import { createStackNavigator } from '@react-navigation/stack';
 
 //Components
@@ -27,47 +29,71 @@ import Strategy from '../../screens/games/Strategy/Strategy';
 import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 
-const HomeStack = () => {
+const HomeStack = ({ navigation }) => {
     return (
         <Stack.Navigator>
             <Stack.Screen
                 name="Home"
                 component={Home}
                 options={{
-                    title: 'INICIO',
-                    tabBarIcon: () => <Ionicons name="home" size={24} color="black" />
+                    title: <Text onPress={() => navigation.openDrawer()} style={styles.text}><MaterialCommunityIcons name="hamburger" size={35} style={styles.icon} /> INICIO</Text>,
+                    headerStyle: {
+                        height: 75,
+                        backgroundColor: '#60a5fa'
+                    },
+                    /*headerRight: () => (
+                        <Text style={styles.bgColor} >
+                            <MaterialCommunityIcons name="hamburger" size={35} style={styles.icon} />
+                        </Text>
+                      ),*/
                 }} />
             <Stack.Screen
                 name="Credentials"
                 component={Credentials}
                 options={{
-                    title: 'INICIAR SESION',
-                    tabBarIcon: () => <Ionicons name="home" size={24} color="black" />
+                    title: <Text style={styles.text}>MODO DE INICIO</Text>,
+                    headerStyle: {
+                        height: 75,
+                        backgroundColor: '#60a5fa'
+                    },
+                    headerLeft:''
                 }} />
             <Stack.Screen
                 name="Login"
                 component={Login}
                 options={{
-                    title: 'INICIAR SESION',
-                    tabBarIcon: () => <Ionicons name="home" size={24} color="black" />
+                    title: <Text style={styles.text}>INICIA SESIÓN</Text>,
+                    headerStyle: {
+                        height: 75,
+                        backgroundColor: '#60a5fa'
+                    },
+                    headerLeft:''
                 }} />
             <Stack.Screen
                 name="Register"
                 component={Register}
                 options={{
-                    title: 'INICIAR SESION',
-                    tabBarIcon: () => <Ionicons name="home" size={24} color="black" />
+                    title: <Text style={styles.text}>REGÍSTRATE</Text>,
+                    headerStyle: {
+                        height: 75,
+                        backgroundColor: '#60a5fa'
+                    },
+                    headerLeft:''
                 }} />
             <Stack.Screen
                 name="Invitate"
                 component={Invitate}
                 options={{
-                    title: 'INICIAR SESION',
-                    tabBarIcon: () => <Ionicons name="home" size={24} color="black" />
+                    title: <Text style={styles.text}>MODO INVITADO</Text>,
+                    headerStyle: {
+                        height: 75,
+                        backgroundColor: '#60a5fa'
+                    },
+                    headerLeft:''
                 }} />
             {/* ============= AQUI VAN LOS PASOS DE MEMORIZE =========*/}
             <Stack.Screen
@@ -139,32 +165,45 @@ const HomeStack = () => {
     );
 }
 
-const ProfileStack = () => {
+const ProfileStack = ({ navigation }) => {
     return (
         <Stack.Navigator>
             <Stack.Screen
                 name="Profile"
                 component={Profile}
                 options={{
-                    title: 'PERFIL',
-                    tabBarIcon: () => <FontAwesome name="user" size={24} color="black" />
+                    title: <Text onPress={() => navigation.openDrawer()} style={styles.text}><MaterialCommunityIcons name="hamburger" size={35} style={styles.icon} /> PERFIL</Text>,
+                    headerStyle: {
+                        height: 75,
+                        backgroundColor: '#60a5fa'
+                    },
                 }} />
         </Stack.Navigator>
     );
 }
 
-const GlobalScoreStack = () => {
+const GlobalScoreStack = ({ navigation }) => {
     return (
         <Stack.Navigator>
             <Stack.Screen
                 name="GlobalScore"
                 component={GlobalScore}
                 options={{
-                    title: 'PUNTOS GLOBALES',
-                    tabBarIcon: () => <Fontisto name="world" size={23} color="black" />
+                    title: <Text onPress={() => navigation.openDrawer()} style={styles.text}><MaterialCommunityIcons name="hamburger" size={35} style={styles.icon} /> PUNTOS GLOBALES</Text>,
+                    headerStyle: {
+                        height: 75,
+                        backgroundColor: '#60a5fa'
+                    },
                 }} />
         </Stack.Navigator>
     );
 }
+
+
+const styles = StyleSheet.create({
+    bgColor: tailwind('flex h-full w-14 mt-2'),
+    icon: tailwind('flex text-yellow-400 items-center'),
+    text: tailwind('flex text-white items-center pb-2'),
+});
 
 export { HomeStack, ProfileStack, GlobalScoreStack }

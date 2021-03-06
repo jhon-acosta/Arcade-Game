@@ -2,7 +2,6 @@ import React, { useState, useEffect, useLayoutEffect } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, Modal } from 'react-native';
 import tailwind from 'tailwind-rn';
 import * as SQLite from 'expo-sqlite';
-
 const db = SQLite.openDatabase('db.arcade');
 
 const Home = ({ navigation }) => {
@@ -28,7 +27,6 @@ const Home = ({ navigation }) => {
 
     useEffect(() => {
         getData();
-        console.log(iniciated)
     })
 
     return (
@@ -51,7 +49,7 @@ const Home = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    container: tailwind('h-full justify-center items-center bg-blue-400'),
+    container: tailwind('h-full justify-center items-center bg-blue-100'),
     buttons: tailwind('p-2 bg-yellow-400 rounded m-1'),
 });
 

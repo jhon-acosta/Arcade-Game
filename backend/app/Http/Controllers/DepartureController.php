@@ -38,7 +38,8 @@ class DepartureController extends Controller
     public function store(Request $request)
     {
         $departure = new Departure();
-        $departure->score = $request->score;
+        $departure->attempts = $request->attempts;
+        $departure->points = $request->points;
         $departure->level = $request->level;
         $departure->time = $request->time;
         $departure->game_id = $request->game_id;
@@ -81,7 +82,8 @@ class DepartureController extends Controller
     public function update(Request $request, $id )
     {
         $departure = Departure::findOrFail($id);
-        $departure->score = $request->score;
+        $departure->attempts = $request->attempts;
+        $departure->points = $request->points;
         $departure->level = $request->level;
         $departure->time = $request->time;
         $departure->game_id = $request->game_id;

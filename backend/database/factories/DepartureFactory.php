@@ -22,7 +22,8 @@ class DepartureFactory extends Factory
     public function definition()
     {
         return [
-            'score' => $this->faker->randomElement([1,2,3,4,5]),
+            'attempts' => $this->faker->randomElement([1,2,3,4,5]),
+            'points' => $this->faker->randomElement([1,2,3,4,5]),
             'level' => $this->faker->randomElement(['1','2','3']),
             'time' => $this->faker->randomElement(['00:10','00:20','00:30','00:40','00:50']),
             'game_id' => $this->faker->randomElement([1,2]),

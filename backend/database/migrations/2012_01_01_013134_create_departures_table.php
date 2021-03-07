@@ -17,7 +17,8 @@ class CreateDeparturesTable extends Migration
             $table->id();
             $table->string('level');
             $table->string('time');
-            $table->string('score');
+            $table->integer('points');
+            $table->string('attempts');
 
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')

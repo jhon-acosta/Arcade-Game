@@ -8,6 +8,7 @@ use App\Http\Controllers\TypeGameController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\DepartureController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ScoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,13 @@ Route::delete("/departure/{id}",[DepartureController::class ,'destroy']);
 
 //LOGIN
 Route::get("/login/{email}",[LoginController::class , 'login']);
+
+//Score Maximum Condor Fly
+Route::get("/point/max",[ScoreController::class ,'pointMax']);
+
+//Score Minimum Jud
+Route::get("/time/min",[ScoreController::class ,'timeMin']);
+
+//Get data for user_id
+Route::get("/departure/user/{user_id}",[ScoreController::class ,'departureUser']);
+

@@ -78,15 +78,11 @@ const Strategy = ({ navigation }) => {
             setObstaclesLeftTwo(screenWidth)
             setObstaclesNegHeightTwo(- Math.random() * 100);
             setScore(score + 1)
-            //console.log(score)
         }
     }, [obstaclesLeftTwo])
 
     //check for collisions
     useEffect(() => {
-        //console.log(obstaclesLeft)
-        //console.log(screenWidth / 2)
-        //console.log(obstaclesLeft > screenWidth / 2)
         if (
             ((birdBottom < (obstaclesNegHeight + obstacleHeight + 30) ||
                 birdBottom > (obstaclesNegHeight + obstacleHeight + gap - 30)) &&
@@ -98,9 +94,8 @@ const Strategy = ({ navigation }) => {
                 (obstaclesLeftTwo > screenWidth / 2 - 30 && obstaclesLeftTwo < screenWidth / 2 + 30)
             )
         ) {
-            //console.log('game over')
-            navigation.navigate('GameOver');
-            gameOver()
+            navigation.navigate('GameOver', { score: score + 1 });
+            gameOver();
         }
     })
 

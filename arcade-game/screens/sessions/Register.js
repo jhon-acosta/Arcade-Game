@@ -4,10 +4,10 @@ import tailwind from 'tailwind-rn';
 import axios from "axios";
 
 import { AntDesign } from '@expo/vector-icons';
-
 import background from '../../assets/background.png';
 
-const API = 'http://192.168.1.5:8000/api';
+const API = 'https://arcade-game-v2.herokuapp.com/api'
+//const API = 'http://192.168.1.5:8000/api';
 
 const Register = ({ navigation }) => {
 

@@ -12,11 +12,11 @@ const Home = ({ navigation }) => {
 
     const getData = () => {
         db.transaction(
-            tx => {
+            async tx => {
                 // tx.executeSql('DROP TABLE arcade')
                 // setIniciated('')
                 tx.executeSql('CREATE TABLE IF NOT EXISTS arcade(id INT, name TEXT, lastname TEXT, nickname TEXT, email TEXT, password TEXT, age TEXT)');
-                tx.executeSql('select * from arcade', [], (_, { rows }) =>
+                await tx.executeSql('select * from arcade', [], (_, { rows }) =>
                     rows._array[0] !== undefined ? setIniciated({ nickname: rows._array[0].nickname }) : navigation.navigate('Credentials')
                     //console.log(rows._array)
                 );

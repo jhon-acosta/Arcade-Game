@@ -12,7 +12,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import background from '../../assets/background.png';
 
-const API = 'http://192.168.1.5:8000/api';
+const API = 'https://arcade-game-v2.herokuapp.com/api'
+//const API = 'http://192.168.1.5:8000/api';
 
 const Login = ({ navigation }) => {
 
@@ -30,7 +31,6 @@ const Login = ({ navigation }) => {
     const login = async () => {
         await axios.get(`${API}/login/${loginUser.email}`)
             .then(res => {
-                console.log(res.data.data)
                 const datos = res.data.data
                 if (datos.email === loginUser.email &&
                     datos.password === loginUser.password

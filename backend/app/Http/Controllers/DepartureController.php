@@ -108,4 +108,11 @@ class DepartureController extends Controller
             return new DepartureResource($departure);
         }
     }
+
+    public function departureUser($user_id){
+        // $user = DB::table('departures')->where('user_id', $user_id)->first();
+        $allData = Departure::where('user_id', $user_id)->get();
+        //return response()->json($departures);
+        return new DepartureResource($allData);
+    }
 }

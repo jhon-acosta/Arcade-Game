@@ -49,6 +49,9 @@ Route::post("/departure",[DepartureController::class,'store']);
 Route::put("/departure/{id}",[DepartureController::class ,'update']);
 Route::delete("/departure/{id}",[DepartureController::class ,'destroy']);
 
+//Get data for user_id
+Route::get("/departure/user/{user_id}",[DepartureController::class ,'departureUser']);
+
 //LOGIN
 Route::get("/login/{email}",[LoginController::class , 'login']);
 
@@ -58,6 +61,5 @@ Route::get("/point/max",[ScoreController::class ,'pointMax']);
 //Score Minimum Jud
 Route::get("/time/min",[ScoreController::class ,'timeMin']);
 
-//Get data for user_id
-Route::get("/departure/user/{user_id}",[ScoreController::class ,'departureUser']);
+
 

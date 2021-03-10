@@ -4,6 +4,9 @@ import tailwind from 'tailwind-rn';
 import { DataTable } from 'react-native-paper';
 import axios from "axios";
 
+import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+
 const API = 'https://arcade-game-v2.herokuapp.com/api'
 
 const GlobalScore = () => {
@@ -43,30 +46,40 @@ const GlobalScore = () => {
     return (
         <View style={styles.container}>
             <View>
-            <Text style={{fontSize:30, textAlign:'center', padding:25}}>JUD</Text>
+                <Text style={{ fontSize: 30, textAlign: 'center', paddingTop: 25 }}>JUD</Text>
+                <Text style={{ textAlign: 'center' }}><AntDesign name="staro" size={24}  style={styles.icons} /><AntDesign name="staro" size={24} style={styles.icons}/><AntDesign name="staro" size={24} style={styles.icons}/></Text>
                 <DataTable>
                     <DataTable.Header>
-                        <DataTable.Title>Nickname</DataTable.Title>
-                        <DataTable.Title>Tiempo minimo</DataTable.Title>
+                      
+                        <DataTable.Title numeric>Tiempo minimo</DataTable.Title>
+                        <DataTable.Title></DataTable.Title>
                     </DataTable.Header>
                     <DataTable.Row key={topJud.user_id}>
-                        <DataTable.Cell >{topJud.nickname}</DataTable.Cell>
-                        <DataTable.Cell >{topJud.time}</DataTable.Cell>
+                     
+                        <DataTable.Cell numeric>{topJud.time}</DataTable.Cell>
+                        <DataTable.Cell numeric><MaterialIcons name="looks-one" size={24} style={styles.icons} /></DataTable.Cell>
                     </DataTable.Row>
                 </DataTable>
             </View>
             <View>
-                <Text style={{fontSize:30, textAlign:'center', padding:25}}>CONDOR FLY</Text>
+                <Text style={{ fontSize: 30, textAlign: 'center', paddingTop: 25 }}>CONDOR FLY</Text>
+                <Text style={{ textAlign: 'center' }}><AntDesign name="staro" size={24}  style={styles.icons} /><AntDesign name="staro" size={24} style={styles.icons}/><AntDesign name="staro" size={24} style={styles.icons}/></Text>
                 <DataTable>
                     <DataTable.Header>
-                        <DataTable.Title>Nickname</DataTable.Title>
-                        <DataTable.Title>Mayor puntaje</DataTable.Title>
+                       
+                        <DataTable.Title numeric>Mayor puntaje</DataTable.Title>
+                        <DataTable.Title></DataTable.Title>
                     </DataTable.Header>
                     <DataTable.Row key={topCondorFly.user_id}>
-                        <DataTable.Cell >{topCondorFly.nickname}</DataTable.Cell>
-                        <DataTable.Cell >{topCondorFly.point}</DataTable.Cell>
+                       
+                        <DataTable.Cell numeric>{topCondorFly.point}</DataTable.Cell>
+                        <DataTable.Cell numeric><MaterialIcons name="looks-one" size={24} style={styles.icons} /></DataTable.Cell>
                     </DataTable.Row>
                 </DataTable>
+            </View>
+            <View style={styles.congratulations}>
+                <Text style={styles.textOne}>A LOS TOP GLOBAL</Text>
+                <Text style={styles.textTwo}>FELICIDADES</Text>
             </View>
         </View>
     )
@@ -74,7 +87,11 @@ const GlobalScore = () => {
 
 const styles = StyleSheet.create({
     container: tailwind('h-full justify-center bg-blue-100'),
-    textHeader: tailwind('bg-green-600 px-5 py-4 text-lg text-white font-bold')
+    textHeader: tailwind('bg-green-600 px-5 py-4 text-lg text-white font-bold'),
+    icons: tailwind('text-yellow-400'),
+    congratulations:tailwind('flex items-center justify-center p-5 m-5 bg-yellow-400 rounded'),
+    textOne:tailwind('text-white text-xl'),
+    textTwo:tailwind('text-white '),
 });
 
 export default GlobalScore;

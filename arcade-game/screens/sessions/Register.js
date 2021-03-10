@@ -35,7 +35,7 @@ const Register = ({ navigation }) => {
             await axios.post(`${API}/user`, newUser)
                 .then(response => {
                     navigation.navigate("Login")
-                    Alert.alert('Bienvenidp', 'Registro exitoso')
+                    Alert.alert('Bienvenido :)', 'Registro exitoso')
                 })
                 .catch((error) => {
                     Alert.alert('Error', 'Intentalo mas tarde')

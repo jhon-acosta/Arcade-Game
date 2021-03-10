@@ -8,11 +8,6 @@ use App\Http\Resources\ScoreResource;
 
 class ScoreController extends Controller
 {
-    public function departureUser($user_id){
-        $user = DB::table('departures')->where('user_id', $user_id)->first();
-        return new ScoreResource($user);
-    }
-
     public function pointMax(Request $request){
         $points = DB::table('departures')->max('points');
         $departure = DB::table('departures')->where('points',$points)->first();

@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { StyleSheet, Image, Text, View, TouchableOpacity, ImageBackground } from 'react-native';
+import React, { useContext } from 'react'
+import { StyleSheet, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import axios from "axios";
 import tailwind from 'tailwind-rn';
 import injuredBackground from '../../../../assets/imgStrategy/injuredBackground.png';

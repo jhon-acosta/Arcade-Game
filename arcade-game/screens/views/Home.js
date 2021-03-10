@@ -28,18 +28,28 @@ const Home = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text>{iniciated.nickname}</Text>
+            <Text style={{textTransform:'uppercase', margin:2, fontFamily:"Lucida Console"}}>{iniciated.nickname}</Text>
+
             <TouchableOpacity
                 onPress={() => navigation.navigate("Memorize")}
-                style={styles.buttons}
+                style={styles.card1}
             >
-                <Text>Memorize cards Jud</Text>
+                <Text style={{fontSize:50, textAlign:'center',  color:'white'}}>JUD</Text>
+                <Text style={{textAlign:'center'}}>Memorizalo</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => navigation.navigate("Welcome")}
-                style={styles.buttons}
+                style={styles.card2}
             >
-                <Text>CONDOR FLY</Text>
+                <Text style={{fontSize:50,  textAlign:'center', color:'white'}}>CONDOR FLY</Text>
+                <Text style={{textAlign:'center'}}>Ayudalo</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("Welcome")}
+                style={styles.card3}
+            >
+                <Text style={{fontSize:50,  textAlign:'center', color:'white'}}>AHORCADO</Text>
+                <Text style={{textAlign:'center'}}>Salvalo</Text>
             </TouchableOpacity>
         </View>
     )
@@ -47,7 +57,10 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: tailwind('h-full justify-center items-center bg-blue-100'),
-    buttons: tailwind('p-2 bg-yellow-400 rounded m-1'),
+    card1: tailwind('bg-yellow-500 w-full p-10'),
+    card2: tailwind('bg-blue-500 w-full p-10'),
+    card3: tailwind('bg-red-500 w-full p-10 '),
+    circles: tailwind('flex rounded-full p-5 text-xl items-center justify-center')
 });
 
 export default Home;

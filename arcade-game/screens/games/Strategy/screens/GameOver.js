@@ -40,7 +40,6 @@ const GameOver = ({ navigation, route }) => {
     }
     return (
         <ImageBackground style={styles.container} source={injuredBackground}>
-            <Text>{JSON.stringify(userData)}</Text>
             <Text style={{ fontFamily: 'Montserrat', color: 'black', fontSize: 40, textAlign: 'center' }}>INTENTALO</Text>
             <Text style={{ fontFamily: 'Montserrat', color: 'black', fontSize: 20, textAlign: 'center' }}>DE</Text>
             <Text style={{ fontFamily: 'Montserrat', color: 'black', fontSize: 30, textAlign: 'center', paddingBottom: 200 }}>NUEVO</Text>

@@ -25,10 +25,10 @@ import LevelOne from '../../screens/games/Memorize/Levels/levelOne/levelOne';
 import Memorize from '../../screens/games/Memorize/Memorize';
 import Strategy from '../../screens/games/Strategy/Strategy';
 
+import Ahorcado from '../../screens/games/ahorcados/Ahorcado/Ahorcado';
+import HistoryLadron from '../../screens/games/ahorcados/screens/HistoryLadron';
+
 //Icons
-import { Ionicons } from '@expo/vector-icons';
-import { Fontisto } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
@@ -159,6 +159,21 @@ const HomeStack = ({ navigation }) => {
                 component={GameOver}
                 options={{
                     title: 'OOPS!',
+                }}
+            />
+            {/* ============= AQUI VA AHORCADOS ========= */}
+            <Stack.Screen
+                name="Ahorcado"
+                component={Ahorcado}
+                options={{
+                    title: 'Pista: Categoria Navideña',
+                }}
+            />
+              <Stack.Screen
+                name="HistoryLadron"
+                component={HistoryLadron}
+                options={{
+                    title: 'Historia',
                 }}
             />
         </Stack.Navigator>

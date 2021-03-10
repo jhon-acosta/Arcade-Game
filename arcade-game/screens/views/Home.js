@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity,Image,ImageBackground } from 'react-native';
 import tailwind from 'tailwind-rn';
+import condor from '../../assets/imgStrategy/condor.png';
+import homeVenado from '../../assets/imgStrategy/prinVena.png';
+import fondoPrincipal from '../../assets/fondoPrincipal.jpg';
+
 import * as SQLite from 'expo-sqlite';
 const db = SQLite.openDatabase('db.arcade');
 
@@ -30,27 +34,44 @@ const Home = ({ navigation }) => {
     })
 
     return (
-        <View style={styles.container}>
+       
+             <ImageBackground style={styles.container} source={fondoPrincipal}>
             <Text>{iniciated.nickname}</Text>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Memorize")}
-                style={styles.buttons}
-            >
-                <Text>Memorize cards Jud</Text>
-            </TouchableOpacity>
+            <View>
+                <Image
+                    source={condor}
+                    style={styles.image}
+                />
+            </View>
             <TouchableOpacity
                 onPress={() => navigation.navigate("Welcome")}
                 style={styles.buttons}
             >
                 <Text>CONDOR FLY</Text>
             </TouchableOpacity>
-        </View>
+            <View>
+                <Image
+                    source={homeVenado}
+                    style={styles.image}
+                />
+            </View>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("HistoryLadron")}
+                style={styles.buttons}
+            >
+                <Text>AHORCADO</Text>
+            </TouchableOpacity>
+            </ImageBackground>
+       
     )
 }
 
 const styles = StyleSheet.create({
-    container: tailwind('h-full justify-center items-center bg-blue-100'),
+    container: tailwind('h-full justify-center items-center bg-yellow-100'),
     buttons: tailwind('p-2 bg-yellow-400 rounded m-1'),
+    image: tailwind('h-40 w-60'),
 });
 
 export default Home;
+
+

@@ -140,7 +140,6 @@ const Strategy = ({ navigation }) => {
                 />
 
             </ImageBackground>
-
         </TouchableWithoutFeedback>
     )
 }

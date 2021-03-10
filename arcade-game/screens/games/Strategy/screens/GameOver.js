@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, ImageBackground } from 'react-nativ
 import axios from "axios";
 import tailwind from 'tailwind-rn';
 import injuredBackground from '../../../../assets/imgStrategy/injuredBackground.png';
-import { DepartureContext } from '../contexts/DepartureContext'
+import { DepartureContext } from '../../../contexts/DepartureContext'
 
 // const API = 'https://arcade-game-v2.herokuapp.com/api';
 const API = 'http://192.168.1.7:8000/api'

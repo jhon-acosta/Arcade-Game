@@ -11,7 +11,7 @@ import tailwind from 'tailwind-rn';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { DepartureContext } from './screens/games/Strategy/contexts/DepartureContext';
+import { DepartureContext } from './screens/contexts/DepartureContext';
 
 const Drawer = createDrawerNavigator();
 
@@ -51,7 +51,7 @@ const App = () => {
             name="Home"
             component={HomeStack}
             options={{
-
+              title: 'INICIO',
               drawerIcon: ({ tintColor }) => (
                 <AntDesign name="home" size={24} style={{ color: tintColor, paddingTop: 1, }} />
               ),

@@ -11,7 +11,7 @@ const API = 'https://arcade-game-v2.herokuapp.com/api'
 
 const GlobalScore = () => {
 
-    const [topJud, setTopJud] = useState({
+    const [topAhorcado, settopAhorcado] = useState({
         user_id: '',
         nickname: '',
         time: ''
@@ -23,12 +23,17 @@ const GlobalScore = () => {
         time: ''
     })
 
+    const [error, setError] = useState(false)
+
     const topOneJud = async () => {
         await axios.get(`${API}/time/min`)
             .then(res => {
                 const top = res.data;
-                setTopJud(top)
-            });
+                settopAhorcado(top)
+            })
+            .catch(err => {
+                setError(true)
+            })
     }
 
     const topOneCondorFly = async () => {
@@ -36,7 +41,10 @@ const GlobalScore = () => {
             .then(users => {
                 const top = users.data;
                 setTopCondorFly(top)
-            });
+            })
+            .catch(err => {
+                setError(true)
+            })
     }
 
     useEffect(() => {
@@ -46,32 +54,31 @@ const GlobalScore = () => {
     return (
         <View style={styles.container}>
             <View>
-                <Text style={{ fontSize: 30, textAlign: 'center', paddingTop: 25 }}>JUD</Text>
-                <Text style={{ textAlign: 'center' }}><AntDesign name="staro" size={24}  style={styles.icons} /><AntDesign name="staro" size={24} style={styles.icons}/><AntDesign name="staro" size={24} style={styles.icons}/></Text>
+                <Text style={{ fontSize: 30, textAlign: 'center', paddingTop: 25 }}>AHORCADO</Text>
+                <Text style={{ textAlign: 'center' }}><AntDesign name="staro" size={24} style={styles.icons} /><AntDesign name="staro" size={24} style={styles.icons} /><AntDesign name="staro" size={24} style={styles.icons} /></Text>
                 <DataTable>
                     <DataTable.Header>
-                      
-                        <DataTable.Title numeric>Tiempo minimo</DataTable.Title>
+                        <DataTable.Title numeric></DataTable.Title>
                         <DataTable.Title></DataTable.Title>
                     </DataTable.Header>
-                    <DataTable.Row key={topJud.user_id}>
-                     
-                        <DataTable.Cell numeric>{topJud.time}</DataTable.Cell>
+                    <DataTable.Row key={topAhorcado.user_id}>
+                        <DataTable.Cell >MÍNIMO TIEMPO</DataTable.Cell>
+                        <DataTable.Cell numeric>{topAhorcado.time}</DataTable.Cell>
                         <DataTable.Cell numeric><MaterialIcons name="looks-one" size={24} style={styles.icons} /></DataTable.Cell>
                     </DataTable.Row>
                 </DataTable>
             </View>
             <View>
                 <Text style={{ fontSize: 30, textAlign: 'center', paddingTop: 25 }}>CONDOR FLY</Text>
-                <Text style={{ textAlign: 'center' }}><AntDesign name="staro" size={24}  style={styles.icons} /><AntDesign name="staro" size={24} style={styles.icons}/><AntDesign name="staro" size={24} style={styles.icons}/></Text>
+                <Text style={{ textAlign: 'center' }}><AntDesign name="staro" size={24} style={styles.icons} /><AntDesign name="staro" size={24} style={styles.icons} /><AntDesign name="staro" size={24} style={styles.icons} /></Text>
                 <DataTable>
                     <DataTable.Header>
-                       
-                        <DataTable.Title numeric>Mayor puntaje</DataTable.Title>
+
+                        <DataTable.Title numeric></DataTable.Title>
                         <DataTable.Title></DataTable.Title>
                     </DataTable.Header>
                     <DataTable.Row key={topCondorFly.user_id}>
-                       
+                        <DataTable.Cell >MÁXIMO PUNTAJE</DataTable.Cell>
                         <DataTable.Cell numeric>{topCondorFly.point}</DataTable.Cell>
                         <DataTable.Cell numeric><MaterialIcons name="looks-one" size={24} style={styles.icons} /></DataTable.Cell>
                     </DataTable.Row>
@@ -89,9 +96,9 @@ const styles = StyleSheet.create({
     container: tailwind('h-full justify-center bg-blue-100'),
     textHeader: tailwind('bg-green-600 px-5 py-4 text-lg text-white font-bold'),
     icons: tailwind('text-yellow-400'),
-    congratulations:tailwind('flex items-center justify-center p-5 m-5 bg-yellow-400 rounded'),
-    textOne:tailwind('text-white text-xl'),
-    textTwo:tailwind('text-white '),
+    congratulations: tailwind('flex items-center justify-center p-5 m-5 bg-yellow-400 rounded'),
+    textOne: tailwind('text-white text-xl'),
+    textTwo: tailwind('text-white '),
 });
 
 export default GlobalScore;

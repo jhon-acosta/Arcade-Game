@@ -10,6 +10,7 @@ const db = SQLite.openDatabase('db.arcade');
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 import background from '../../assets/background.png';
 
 const API = 'https://arcade-game-v2.herokuapp.com/api'
@@ -61,7 +62,7 @@ const Login = ({ navigation }) => {
 
         <ImageBackground style={styles.container} source={background}>
             <Text style={{ fontFamily: 'Montserrat', fontSize: 30, padding: 20, color: 'white' }}>ACCEDER</Text>
-            <Text><MaterialIcons name="email" size={40} color="black" /><FontAwesome5 name="key" size={30} color="black" /></Text>
+            <EvilIcons name="user" size={24} style={styles.iconUser} />
             <View style={styles.login}>
                 <TextInput style={styles.text} placeholder="Correo electrónico" onChangeText={value => handleChangeText('email', value)} />
                 <TextInput style={styles.text} placeholder="Contraseña" onChangeText={value => handleChangeText('password', value)} />
@@ -83,7 +84,8 @@ const styles = StyleSheet.create({
     singInButton: tailwind('w-72 py-3 mt-5 bg-blue-400 rounded mb-1'),
     title: tailwind('text-3xl text-gray-700 mb-5 font-bold'),
     icon: tailwind('rounded-full text-white p-3 text-3xl'),
-    iconGame: tailwind('bg-white rounded-full text-yellow-400 p-3 text-4xl mb-5')
+    iconGame: tailwind('bg-white rounded-full text-yellow-400 p-3 text-4xl mb-5'),
+    iconUser: tailwind('bg-gray-100 text-yellow-400 p-5 rounded-full text-4xl ')
 });
 
 export default Login

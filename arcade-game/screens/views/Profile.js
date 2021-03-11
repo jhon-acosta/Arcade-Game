@@ -56,7 +56,7 @@ const Profile = ({ navigation }) => {
         <View style={styles.container}>
             <FontAwesome5 name="user-astronaut" size={100} style={styles.icon} />
             <TouchableOpacity style={styles.logoutButton} onPress={() => logout()}>
-                <Text>CERRAR SESION</Text>
+                <Text>CERRAR SESIÓN</Text>
             </TouchableOpacity>
             <Text style={styles.profile}>Nombre:     {`${profile.name}  ${profile.lastname}`}</Text>
             <Text style={styles.profile}>Apodo:       {profile.nickname}</Text>

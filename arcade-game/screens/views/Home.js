@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity,Image,ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import tailwind from 'tailwind-rn';
 import condor from '../../assets/imgStrategy/condor.png';
 import homeVenado from '../../assets/imgStrategy/prinVena.png';
@@ -29,14 +29,22 @@ const Home = ({ navigation }) => {
         );
     }
 
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <Text style={{ fontSize: 20, textTransform: 'uppercase', textAlignVertical: 'bottom', color: 'white', padding: 5 }}>{iniciated.nickname}</Text>
+            )
+        });
+    }, [navigation, iniciated]);
+
     useEffect(() => {
         getData();
     })
 
     return (
-       
-             <ImageBackground style={styles.container} source={fondoPrincipal}>
-            <Text>{iniciated.nickname}</Text>
+
+        <ImageBackground style={styles.container} source={fondoPrincipal}>
+
             <View>
                 <Image
                     source={condor}
@@ -61,8 +69,8 @@ const Home = ({ navigation }) => {
             >
                 <Text>AHORCADO</Text>
             </TouchableOpacity>
-            </ImageBackground>
-       
+        </ImageBackground>
+
     )
 }
 

@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
     container: tailwind('h-full justify-center items-center bg-gray-200'),
     imgContainer: tailwind('p-7'),
     subContainter: tailwind('flex items-center justify-center bg-yellow-400 p-4 rounded border-l-2 border-b-2 border-yellow-500'),
-    buttonBlue: tailwind('flex items-center bg-blue-400 p-3 w-24 m-2'),
-    buttonRed: tailwind('flex items-center bg-red-400 p-3 w-24'),
+    buttonBlue: tailwind('flex items-center bg-blue-400 p-3 w-32 m-2'),
+    buttonRed: tailwind('flex items-center bg-red-400 p-3 w-32'),
     buttons: tailwind('p-2 bg-yellow-400 rounded m-1'),
 });
 

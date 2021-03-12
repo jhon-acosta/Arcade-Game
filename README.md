@@ -40,11 +40,11 @@
 <!-- ABOUT THE PROJECT -->
 ## Este Proyecto
 
-Este proyecto fue desarrollado principalmente para una diversión en todo momento que el usuario los desee, estando su disposición esta plataforma de juegos denominada como Arcade Game donde se encuentran dos juegos en su interior, los cuáles son:
+Este proyecto fue desarrollado principalmente con un enfoque en diversión del usuario en cualquier momento, estando a su disposición esta plataforma de juegos denominada como Arcade Game dónde se encuentran dos juegos en su interior, los cuáles son:
 * CONDOR FLY
 * AHORCADO
 
-Cada juego tiene su forma de entrener al usuario permitiendo guardar la infomración como puntaje o tiempo transcurrido en su servidor alojado en la nube.
+Cada juego tiene su forma de entrener al usuario permitiendo guardar la información como puntaje o tiempo transcurrido en su servidor alojado en la nube.
 
 ¿Por qué se dió?
 * Principalmente para conocer como es el funcionamiento de una aplicación nativa.

@@ -28,7 +28,7 @@
       </ul>
     </li>
     <li>
-      <a >Comenzamos</a>
+      <a>Comenzamos</a>
       <ul>
         <li><a>Prerequisitos</a></li>
         <li><a>Instalación</a></li>
@@ -72,7 +72,7 @@ Para tener el juego en el disposiivo cumplir los siguientes prerequisitos y requ
 * Único:
 * 
   ```sh
-  Nota: Tener activado las fuentes desconocidas en nuestro dispositivo android.
+  Nota: Tener activado las fuentes desconocidas en su dispositivo android.
   ```
 
 ### Instalación
@@ -88,7 +88,7 @@ Para tener el juego en el disposiivo cumplir los siguientes prerequisitos y requ
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-Disfruta de nuestro juego de una forma online y offline.
+Disfruta de Arcade Game de una forma online y offline.
 
 ## Contribuciones
 

@@ -61,6 +61,7 @@
 Este proyecto fue desarrollado principalmente para una diversión en todo momento que el usuario los desee, estando su disposición esta plataforma de juegos denominada como Arcade Game donde se encuentran dos juegos en su interior, los cuáles son:
 * CONDOR FLY
 * AHORCADO
+* 
 Cada juego tiene su forma de entrener al usuario permitiendo guardar la infomración como puntaje o tiempo transcurrido en su servidor alojado en la nube.
 
 ¿Porque se dio
@@ -73,10 +74,14 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 ### Built With
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Expo](https://docs.expo.io/)
+* [React JS](https://es.reactjs.org/)
+* [React Native](https://reactnative.dev/)
 * [Laravel](https://laravel.com)
 
+### Despliegue
+Para que el servidor se encuentre en la nube se uso :
+* [Heroku](https://www.heroku.com/students)
 
 
 <!-- GETTING STARTED -->
@@ -87,10 +92,16 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+Descargar el (.apk)
+* 
   ```sh
-  npm install npm@latest -g
+  Arcade Game.apk 
+  ```
+  
+Activar fuentes -> [https://example.com]
+* 
+  ```sh
+  Arcade Game.apk 
   ```
 
 ### Installation

@@ -28,10 +28,10 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Comenzamos</a>
+      <a >Comenzamos</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisitos</a></li>
-        <li><a href="#installation">Instalación</a></li>
+        <li><a>Prerequisitos</a></li>
+        <li><a>Instalación</a></li>
       </ul>
     </li>
   </ol>
@@ -46,12 +46,12 @@ Este proyecto fue desarrollado principalmente para una diversión en todo moment
 
 Cada juego tiene su forma de entrener al usuario permitiendo guardar la infomración como puntaje o tiempo transcurrido en su servidor alojado en la nube.
 
-¿Porque se dio?
+¿Por qué se dió?
 * Principalmente para conocer como es el funcionamiento de una aplicación nativa.
 
-### Built With
+### Contrucción
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Las herramientas que se utilizaron para ambientes tanto en desarrollo como el producción, son:
 * [Expo](https://docs.expo.io/)
 * [React JS](https://es.reactjs.org/)
 * [React Native](https://reactnative.dev/)
@@ -72,7 +72,7 @@ Para tener el juego en el disposiivo cumplir los siguientes prerequisitos y requ
 * Único:
 * 
   ```sh
-  Tener activado las fuentes desconocidas en nuestro dispositivo android.
+  Nota: Tener activado las fuentes desconocidas en nuestro dispositivo android.
   ```
 
 ### Instalación
@@ -88,7 +88,7 @@ Para tener el juego en el disposiivo cumplir los siguientes prerequisitos y requ
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-Disgruta de nuestro juego de una forma onlina y offline.
+Disfruta de nuestro juego de una forma online y offline.
 
 ## Contribuciones
 
@@ -99,6 +99,6 @@ Miembros del proyecto integrador:
 3. Daniela Sanchez
 4. Jhon Acosta (mi persona)
 
-## Contact
+## Contacto
 
 Acosta Jhon - jhonerick2018@gmail.com

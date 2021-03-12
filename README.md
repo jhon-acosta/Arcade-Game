@@ -82,7 +82,7 @@ Para tener el juego en el disposiivo cumplir los siguientes prerequisitos:
    ```sh
    Nota: si aparece alguna alerta de seguridad, es debido a que no se encuentra en el Google Play, omitirlo.
    ```
-3. Registrase e Iniciar 
+3. Registrarse e Iniciar Sesión
 4. Momento de JUGAR 🎮
 
 <!-- USAGE EXAMPLES -->

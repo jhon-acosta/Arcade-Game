@@ -10,7 +10,7 @@
   <h3 align="center"><a href ="">Descargar</a></h3>
 
   <p align="center">
-    Registrate y disfruta un momento de diversión!
+    Regístrate y disfruta un momento de diversión!
     <br />
     <br />
     <a href="https://christmas-game.vercel.app/"><strong>Ver Demo</strong></a>

@@ -17,7 +17,7 @@
 -->
 [![Contributors][contributors-shield]][contributors-url]
 
-<h1>Concer nuestro juego desarrollado en React Native</h1>
+<h1>Conoce uestro juego desarrollado en React Native</h1>
 
 <!-- PROJECT LOGO -->
 <br />

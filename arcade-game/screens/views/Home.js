@@ -4,6 +4,8 @@ import tailwind from 'tailwind-rn';
 import condor from '../../assets/imgStrategy/condor.png';
 import homeVenado from '../../assets/imgStrategy/prinVena.png';
 import fondoPrincipal from '../../assets/fondoPrincipal.jpg';
+import { AntDesign } from '@expo/vector-icons';
+import * as Linking from 'expo-linking';
 
 import * as SQLite from 'expo-sqlite';
 const db = SQLite.openDatabase('db.arcade');
@@ -32,7 +34,7 @@ const Home = ({ navigation }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-                <Text style={{ fontSize: 20, textTransform: 'uppercase', textAlignVertical: 'bottom', color: 'white', padding: 5 }}>{iniciated.nickname}</Text>
+                <AntDesign name="github" size={24} color="black" style={{padding:5}} onPress={() => Linking.openURL('https://github.com/Acosta-Jhon/arcade-game')}/>
             )
         });
     }, [navigation, iniciated]);

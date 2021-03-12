@@ -17,7 +17,7 @@
 -->
 [![Contributors][contributors-shield]][contributors-url]
 
-<h1>Conoce uestro juego desarrollado en React Native</h1>
+<h1>ARCADE GAME</h1>
 
 <!-- PROJECT LOGO -->
 <br />

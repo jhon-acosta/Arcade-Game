@@ -26,10 +26,10 @@
     <img src="arcade-game/assets/icon-game.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center"><a href ="">Descargar</a></h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Registrate y disfruta un momento de diversión!
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />

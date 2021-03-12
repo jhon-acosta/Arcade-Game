@@ -3,11 +3,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/Acosta-Jhon/arcade-game/raw/master/Arcade%20Game.apk">
     <img src="arcade-game/assets/icon-game.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center"><a href ="">Descargar</a></h3>
+  <h3 align="center"><a href="https://github.com/Acosta-Jhon/arcade-game/raw/master/Arcade%20Game.apk">Descargar</a></h3>
 
   <p align="center">
     Regístrate y disfruta un momento de diversión!

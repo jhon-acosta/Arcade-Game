@@ -65,7 +65,7 @@ Para que el servidor se encuentre en la nube se uso :
 <!-- GETTING STARTED -->
 ## Comenzamos
 
-Para tener el juego en el disposiivo cumplir los siguientes prerequisitos y requisitos.
+Para tener el juego en el disposiivo cumplir los siguientes prerequisitos:
 
 ### Prerequisito
 
